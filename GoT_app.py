@@ -15,12 +15,12 @@ sample = load_samples(IMAGE_PATH)
 
 def GoT_algo(img_path):
 	"""Function that takes a image(s) via file path(s) and makes predictions using the final CNN model.
-	   Outputs a plot of image(s) with the predicted label.
+	   Outputs a plot of image(s) with the predicted label (+ for GoT, - for Not GoT)
 
 	   Arguments:
 	    img_path: File path of image(s) used to make a prediction.  
 	"""
-	
+
 	fig = plt.figure()
 	for i, image in enumerate(img_path):
 		test_img = path_to_tensor(image).astype('float32')/255
