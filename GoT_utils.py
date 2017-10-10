@@ -51,7 +51,6 @@ def path_to_tensor(img_path):
 
 	   Returns:
 	    4D tensor with shape (1,224,224,3).
-
 	"""
 
 	img = image.load_img(img_path, target_size=(224, 224))
@@ -59,7 +58,7 @@ def path_to_tensor(img_path):
 	return np.expand_dims(x, axis=0)
 
 def paths_to_tensor(img_paths):
-	"""Stacks individual image tensors together
+	"""Stacks individual image tensors together.
 
 	   Arguments:
 	    img_paths: List of image file paths.
@@ -71,3 +70,29 @@ def paths_to_tensor(img_paths):
 	list_of_tensors = [path_to_tensor(img_path) for img_path in tqdm(img_paths)]
 	return np.vstack(list_of_tensors)
 
+def cm_plot(cm, classes, title='Confusion Matrix', cmap=plt.cm.Blues):
+	"""Plots confusion matrix.
+
+	   Arguments:
+	    cm: Confusion matrix created using sklearn.
+	    classes: List of class names (labels).
+	    cmap: Color map scheme for plot.
+	"""
+
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+    
+    fmt = '.2f' 
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
