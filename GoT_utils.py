@@ -1,16 +1,16 @@
 from __future__ import absolute_import, division, print_function
 from sklearn.datasets import load_files
 from sklearn.metrics import confusion_matrix, classification_report
-import itertools      
+import itertools
 from keras.utils import np_utils
 import numpy as np
 from glob import glob
-from keras.preprocessing import image                  
+from keras.preprocessing import image 
 from tqdm import tqdm
 import cv2
-import matplotlib.pyplot as plt    
-import os                
-from PIL import ImageFile                            
+import matplotlib.pyplot as plt
+import os
+from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
@@ -81,20 +81,20 @@ def cm_plot(cm, classes, title='Confusion Matrix', cmap=plt.cm.Blues):
 	    cmap: Color map scheme for plot.
 	"""
 
-    plt.imshow(cm, interpolation='nearest', cmap=cmap)
-    plt.title(title)
-    plt.colorbar()
-    tick_marks = np.arange(len(classes))
-    plt.xticks(tick_marks, classes, rotation=45)
-    plt.yticks(tick_marks, classes)
-    
-    fmt = '.2f' 
-    thresh = cm.max() / 2.
-    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(j, i, format(cm[i, j], fmt),
-                 horizontalalignment="center",
-                 color="white" if cm[i, j] > thresh else "black")
+	plt.imshow(cm, interpolation='nearest', cmap=cmap)
+	plt.title(title)
+	plt.colorbar()
+	tick_marks = np.arange(len(classes))
+	plt.xticks(tick_marks, classes, rotation=45)
+	plt.yticks(tick_marks, classes)
 
-    plt.tight_layout()
-    plt.ylabel('True label')
-    plt.xlabel('Predicted label')
+	fmt = '.2f' 
+	thresh = cm.max() / 2.
+	for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+		plt.text(j, i, format(cm[i, j], fmt),
+				horizontalalignment="center",
+				color="white" if cm[i, j] > thresh else "black")
+
+	plt.tight_layout()
+	plt.ylabel('True label')
+	plt.xlabel('Predicted label')
