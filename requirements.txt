@@ -1,0 +1,9 @@
+tensorflow
+opencv-python
+numpy
+keras
+tqdm
+glob
+instagram-scraper
+scikit-learn
+Pillow
