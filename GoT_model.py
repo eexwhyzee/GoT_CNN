@@ -4,7 +4,16 @@ from keras.layers.normalization import BatchNormalization
 
 
 def CNN(x, weights):
-	'''Input: file path directing to saved weights'''
+	''' CNN implementation used for making predictions.
+
+		Arguments: 
+		 x: Input image with shape (224,224,3).
+		 weights: File path directing to saved weights.
+
+	    Returns: 
+	     Prediction for input image.
+	'''
+
 	model = Sequential()
 
 	model.add(Conv2D(filters=64, kernel_size=3, strides=1, padding='same', input_shape=(224,224,3)))
