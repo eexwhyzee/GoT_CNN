@@ -4,7 +4,7 @@ from keras.layers.normalization import BatchNormalization
 
 
 def CNN(x, weights):
-	''' CNN implementation used for making predictions.
+	"""CNN implementation used for making predictions.
 
 		Arguments: 
 		 x: Input image with shape (224,224,3).
@@ -12,7 +12,7 @@ def CNN(x, weights):
 
 	    Returns: 
 	     Prediction for input image.
-	'''
+	"""
 
 	model = Sequential()
 
