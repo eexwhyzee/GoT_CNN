@@ -1,5 +1,7 @@
 from __future__ import absolute_import, division, print_function
-from sklearn.datasets import load_files       
+from sklearn.datasets import load_files
+from sklearn.metrics import confusion_matrix, classification_report
+import itertools      
 from keras.utils import np_utils
 import numpy as np
 from glob import glob
