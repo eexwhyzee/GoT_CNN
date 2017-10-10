@@ -6,9 +6,9 @@ from keras.layers.normalization import BatchNormalization
 def CNN(x, weights):
 	"""CNN implementation used for making predictions.
 
-        Arguments: 
-         x: Input image with shape (224,224,3).
-         weights: File path directing to saved weights.
+	    Arguments: 
+	     x: Input image with shape (224,224,3).
+	     weights: File path directing to saved weights.
 
 	    Returns: 
 	     Prediction for input image.
